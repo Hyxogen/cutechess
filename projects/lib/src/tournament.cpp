@@ -439,6 +439,8 @@ void Tournament::startGame(TournamentPair* pair)
 	game->setOpeningBook(white.book(), Chess::Side::White, white.bookDepth());
 	game->setOpeningBook(black.book(), Chess::Side::Black, black.bookDepth());
 
+	m_openingMoves.clear();
+
 	if (!m_startFen.isEmpty() || !m_openingMoves.isEmpty())
 	{
 		game->setStartingFen(m_startFen);
@@ -459,7 +461,7 @@ void Tournament::startGame(TournamentPair* pair)
 	}
 
 	game->generateOpening();
-	if (m_repetitionCounter < m_openingRepetitions)
+	if (m_repetitionCounter < m_openingRepetitions && 0)
 	{
 		m_startFen = game->startingFen();
 		if (m_startFen.isEmpty() && board->isRandomVariant())

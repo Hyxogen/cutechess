@@ -488,6 +488,7 @@ void ChessGame::setAdjudicator(const GameAdjudicator& adjudicator)
 
 void ChessGame::generateOpening()
 {
+	return;
 	if (m_book[Chess::Side::White] == nullptr || m_book[Chess::Side::Black] == nullptr)
 		return;
 	if (!resetBoard())
